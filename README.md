@@ -24,6 +24,8 @@ To add an application or script to always start when Windows has finished starti
 
 ## Pi
 
+**WiFi USB**
+
 To compile & install usb -> wifi dongles for the Raspberry Pi for different kernels, use this script:
 [http://downloads.fars-robotics.net/wifi-drivers/install-wifi](http://downloads.fars-robotics.net/wifi-drivers/install-wifi)
 
@@ -34,3 +36,10 @@ You may need to chmod it to make it executable: `$ chmod +x install-wifi.sh`
 If it fails to self update, try commenting out those lines (line ~399) and re-run.
 
 The script will need to be run every time you update the kernel version via `$ sudo apt update`.
+
+**Setting the date/time**
+
+If your pi won't get the time from an ntp server, you can run this one liner to set it from your favourite website:
+
+`$ sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"`
+
